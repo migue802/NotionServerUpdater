@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  notion-updater:
+    build: .
+    container_name: notion-server-updater
+    restart: unless-stopped
+    
+    # Mount host filesystem to get real disk usage
+    volumes:
+      # Mount the root filesystem as read-only to get disk usage info
+      - /:/host:ro
+      # Mount /proc and /sys for system information
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    
+    # Security options
+    security_opt:
+      - no-new-privileges:true
+    
+    # Resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: '0.5'
+    
+    # Network mode (optional, for getting real IP)
+    network_mode: host
