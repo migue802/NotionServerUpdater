@@ -13,6 +13,9 @@ services:
       # Mount /proc and /sys for system information
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
+
+    env_file:
+      - .env
     
     # Security options
     security_opt:
