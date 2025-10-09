@@ -9,7 +9,7 @@ var refreshPeriodSeconds = parseInt(process.env.REFRESH_PERIOD_SECONDS) || 30;
 
 // Initializing a client
 const notion = new Client({
-  auth: process.env.NOTION_API_KEY
+  auth: process.env.NOTION_TOKEN
 });
 
 // Function to update server information
