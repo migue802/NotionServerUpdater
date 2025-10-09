@@ -6,8 +6,6 @@ services:
     
     # Mount host filesystem to get real disk usage
     volumes:
-      # Mount the root filesystem as read-only to get disk usage info
-      - /:/host:ro
       # Mount /proc and /sys for system information
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro

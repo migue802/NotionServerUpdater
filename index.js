@@ -42,7 +42,7 @@ async function updateServerInfo() {
         let targetDisk = systeminfo[0];
         if (systeminfo.length > 1) {
             targetDisk = systeminfo.reduce((largest, current) => {
-                if (current.mount === '/' || current.mount.includes('/host')) {
+                if (current.mount === '/') {
                     return current;
                 }
                 return current.size > largest.size ? current : largest;
